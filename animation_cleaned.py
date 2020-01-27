@@ -1,7 +1,5 @@
 # import necessary packages
 import sys
-import numpy as np
-from numpy import pi, sin, cos, sqrt
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import csv
@@ -63,70 +61,92 @@ csv_data = get_data()
         22-30 RF
         31-39 LB
         40-48 RB'''
-count = 0
+max_x = 0
+max_y = 0
+max_4 = 0
+max_5 = 0
 for item in csv_data:
-    if count > 2:
-        nose_x.append(float(item[0]))
-        nose_y.append(float(item[1])*-1)
+        nose_x.append(float(item[0]) - float(item[4]))
+        nose_y.append((float(item[1]) - float(item[5])) *-1)
 
-        eye_x.append(float(item[2]))
-        eye_y.append(float(item[3])*-1)
+        eye_x.append(float(item[2]) - float(item[4]))
+        eye_y.append((float(item[3]) - float(item[5]))*-1)
 
-        body_upper_x.append(float(item[4]))
-        body_upper_y.append(float(item[5])*-1)
+        body_upper_x.append(0)
+        body_upper_y.append(0)
 
-        butt_x.append(float(item[6]))
-        butt_y.append(float(item[7])*-1)
+        butt_x.append(float(item[6]) - float(item[4]))
+        butt_y.append((float(item[7]) - float(item[5]))*-1)
 
-        LF1_x.append(float(item[8]))
-        LF1_y.append(float(item[9]) * -1)
+        LF1_x.append(float(item[8]) - float(item[4]))
+        LF1_y.append((float(item[9]) - float(item[5])) * -1)
 
-        LF2_x.append(float(item[10]))
-        LF2_y.append(float(item[11]) * -1)
+        LF2_x.append(float(item[10]) - float(item[4]))
+        LF2_y.append((float(item[11]) - float(item[5])) * -1)
 
-        LF3_x.append(float(item[12]))
-        LF3_y.append(float(item[13]) * -1)
+        LF3_x.append(float(item[12]) - float(item[4]))
+        LF3_y.append((float(item[13]) - float(item[5])) * -1)
 
-        RF1_x.append(float(item[14]))
-        RF1_y.append(float(item[15]) * -1)
+        RF1_x.append(float(item[14]) - float(item[4]))
+        RF1_y.append((float(item[15]) - float(item[5])) * -1)
 
-        RF2_x.append(float(item[16]))
-        RF2_y.append(float(item[17]) * -1)
+        RF2_x.append(float(item[16]) - float(item[4]))
+        RF2_y.append((float(item[17]) - float(item[5])) * -1)
 
-        RF3_x.append(float(item[18]))
-        RF3_y.append(float(item[19]) * -1)
+        RF3_x.append(float(item[18]) - float(item[4]))
+        RF3_y.append((float(item[19]) - float(item[5])) * -1)
 
-        LB1_x.append(float(item[20]))
-        LB1_y.append(float(item[21]) * -1)
+        LB1_x.append(float(item[20]) - float(item[4]))
+        LB1_y.append((float(item[21]) - float(item[5])) * -1)
 
-        LB2_x.append(float(item[22]))
-        LB2_y.append(float(item[23]) * -1)
+        LB2_x.append(float(item[22]) - float(item[4]))
+        LB2_y.append((float(item[23]) - float(item[5])) * -1)
 
-        LB3_x.append(float(item[24]))
-        LB3_y.append(float(item[25]) * -1)
+        LB3_x.append(float(item[24]) - float(item[4]))
+        LB3_y.append((float(item[25]) - float(item[5])) * -1)
 
-        RB1_x.append(float(item[26]))
-        RB1_y.append(float(item[27]) * -1)
+        RB1_x.append(float(item[26]) - float(item[4]))
+        RB1_y.append((float(item[27]) - float(item[5])) * -1)
 
-        RB2_x.append(float(item[28]))
-        RB2_y.append(float(item[29]) * -1)
+        RB2_x.append(float(item[28]) - float(item[4]))
+        RB2_y.append((float(item[29]) -float(item[5])) * -1)
 
-        RB3_x.append(float(item[30]))
-        RB3_y.append(float(item[31]) * -1)
-    count += 1
-
+        RB3_x.append(float(item[30]) - float(item[4]))
+        RB3_y.append((float(item[31])- float(item[5])) * -1)
+        max_x = max(max_x, float(item[0]), float(item[2]), float(item[4]), float(item[6]), float(item[8]),
+                    float(item[10]), float(item[12]), float(item[14]), float(item[16]),float(item[18]),
+                    float(item[20]), float(item[22]), float(item[24]), float(item[26]), float(item[28]),
+                    float(item[30]))
+        max_y = max(max_y, float(item[1]), float(item[3]), float(item[5]), float(item[7]), float(item[9]),
+                    float(item[11]), float(item[13]), float(item[15]), float(item[17]),
+                    float(item[19]), float(item[21]), float(item[23]), float(item[25]), float(item[27]),
+                    float(item[29]), float(item[31]))
+        max_4 = max(max_4, float(item[4]))
+        max_5 = max(max_5, float(item[5]))
 # set up the figure and subplot
+
 fig = plt.figure()
 fig.canvas.set_window_title('Matplotlib Animation')
-ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(1920,0), ylim=(-1080, 0))
+ax = fig.add_subplot(111, aspect='equal', autoscale_on=False, xlim=(-1920/2,1920/2), ylim=(-1080/2 - 200, 1080/2 - 200))
 #ax.grid()
-plt.xticks([])
-plt.yticks([])
+#plt.xticks([])
+#plt.yticks([])
 body_line, = ax.plot([], [], 'o-', lw=1, color='#de2d26')
 left_front_leg, = ax.plot([], [], 'o-', lw=1, color='#0000FF')
 right_front_leg, = ax.plot([], [], 'o-', lw=1, color='#EE82EE')
 left_rear_leg, = ax.plot([], [], 'o-', lw=1, color='#DAA520')
 right_rear_leg, = ax.plot([], [], 'o-', lw=1, color='#7FFF00')
+"""
+plt.figure('Line fig')
+ax = plt.gca()
+#设置x轴、y轴名称
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+
+#画连线图，以x_list中的值为横坐标，以y_list中的值为纵坐标
+#参数c指定连线的颜色，linewidth指定连线宽度，alpha指定连线的透明度
+ax.plot(LF1_x, LF1_y, color='r', linewidth=1)
+"""
 
 
 # initialization function
@@ -164,7 +184,7 @@ def animate(i):
 
 
 # call the animation
-ani = animation.FuncAnimation(fig, animate, init_func=init, frames=len(nose_x), interval=40, blit=True, repeat=True)
+ani = animation.FuncAnimation(fig, animate, init_func=init, frames=len(nose_x), interval=50, blit=True, repeat=True)
 ## to save animation, uncomment the line below:
 ## ani.save('offset_piston_motion_animation.mp4', fps=30, extra_args=['-vcodec', 'libx264'])
 

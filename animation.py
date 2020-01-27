@@ -1,7 +1,5 @@
 # import necessary packages
 import sys
-import numpy as np
-from numpy import pi, sin, cos, sqrt
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import csv

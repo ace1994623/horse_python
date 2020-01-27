@@ -15,7 +15,7 @@ def check_distance(x, y, pre_x, pre_y, body_x, body_y, pre_body_x, pre_body_y, s
     #    current = scale * (float(x) - float(body_x)) + scale * (float(y) - float(body_y))
     #    past = float(pre_x) - float(pre_body_x) + float(pre_y) - pre_body_y
     print(abs((current - past) / past))
-    return abs((current - past) / past) < 10
+    return abs((current - past) / past) < 0.2
 
 
 def clean_data(file_name):
@@ -129,9 +129,9 @@ def clean_data(file_name):
                         last_data[index] = float(item[index]) * scale
                     if update < 2:
                         if update == 0:
-                            new_record.append(last_data[index] * direction)
+                            new_record.append(standard_data[index] * direction)
                         else:
-                            new_record.append(last_data[index])
+                            new_record.append(standard_data[index])
                     index += 1
         count += 1
         if new_record:

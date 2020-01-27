@@ -66,53 +66,53 @@ csv_data = get_data()
 count = 0
 for item in csv_data:
     if count > 2:
-        nose_x.append(float(item[1]))
-        nose_y.append(float(item[2])*-1)
+        nose_x.append(float(item[0]))
+        nose_y.append(float(item[1])*-1)
 
-        eye_x.append(float(item[4]))
-        eye_y.append(float(item[5])*-1)
+        eye_x.append(float(item[2]))
+        eye_y.append(float(item[3])*-1)
 
-        body_upper_x.append(float(item[7]))
-        body_upper_y.append(float(item[8])*-1)
+        body_upper_x.append(float(item[4]))
+        body_upper_y.append(float(item[5])*-1)
 
-        butt_x.append(float(item[10]))
-        butt_y.append(float(item[11])*-1)
+        butt_x.append(float(item[6]))
+        butt_y.append(float(item[7])*-1)
 
-        LF1_x.append(float(item[13]))
-        LF1_y.append(float(item[14]) * -1)
+        LF1_x.append(float(item[8]))
+        LF1_y.append(float(item[9]) * -1)
 
-        LF2_x.append(float(item[16]))
-        LF2_y.append(float(item[17]) * -1)
+        LF2_x.append(float(item[10]))
+        LF2_y.append(float(item[11]) * -1)
 
-        LF3_x.append(float(item[19]))
-        LF3_y.append(float(item[20]) * -1)
+        LF3_x.append(float(item[12]))
+        LF3_y.append(float(item[13]) * -1)
 
-        RF1_x.append(float(item[22]))
-        RF1_y.append(float(item[23]) * -1)
+        RF1_x.append(float(item[14]))
+        RF1_y.append(float(item[15]) * -1)
 
-        RF2_x.append(float(item[25]))
-        RF2_y.append(float(item[26]) * -1)
+        RF2_x.append(float(item[16]))
+        RF2_y.append(float(item[17]) * -1)
 
-        RF3_x.append(float(item[28]))
-        RF3_y.append(float(item[29]) * -1)
+        RF3_x.append(float(item[18]))
+        RF3_y.append(float(item[19]) * -1)
 
-        LB1_x.append(float(item[31]))
-        LB1_y.append(float(item[32]) * -1)
+        LB1_x.append(float(item[20]))
+        LB1_y.append(float(item[21]) * -1)
 
-        LB2_x.append(float(item[34]))
-        LB2_y.append(float(item[35]) * -1)
+        LB2_x.append(float(item[22]))
+        LB2_y.append(float(item[23]) * -1)
 
-        LB3_x.append(float(item[37]))
-        LB3_y.append(float(item[38]) * -1)
+        LB3_x.append(float(item[24]))
+        LB3_y.append(float(item[25]) * -1)
 
-        RB1_x.append(float(item[40]))
-        RB1_y.append(float(item[41]) * -1)
+        RB1_x.append(float(item[26]))
+        RB1_y.append(float(item[27]) * -1)
 
-        RB2_x.append(float(item[43]))
-        RB2_y.append(float(item[44]) * -1)
+        RB2_x.append(float(item[28]))
+        RB2_y.append(float(item[29]) * -1)
 
-        RB3_x.append(float(item[46]))
-        RB3_y.append(float(item[47]) * -1)
+        RB3_x.append(float(item[30]))
+        RB3_y.append(float(item[31]) * -1)
     count += 1
 
 # set up the figure and subplot
